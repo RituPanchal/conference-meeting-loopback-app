@@ -1,0 +1,242 @@
+@import "~bootstrap/scss/bootstrap";
+
+//colors
+$text-color: #344B60;
+$background-color: #FBFBFB;
+$white-color: #ffffff;
+$border-color: #CCCCCC;
+$secondary-text: #9B9B9B;
+$active-btn-color: #CE3923;
+$hover-bg-color:  rgba(115, 180, 255, 0.09);
+$nav-bg-color:  rgba(115, 180, 255, 0.2);
+
+
+//font-weight
+$font-weights : ( 
+    "bold": 700,
+    "regular": 400,
+    "light": 300
+);
+
+@function weight($weight-value){
+    @return map-get($font-weights, $weight-value);
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    color: $text-color !important;
+    font-size: 14px !important;
+    font-weight: weight(regular) !important;
+    background: $background-color;
+}
+
+.btn{
+    height: 28px;
+    font-size: 10px;
+}
+
+nav{
+    background-color: $nav-bg-color;
+
+    & .nav-wrapper{
+        
+        a{
+            font-size: 20px;
+            color: $text-color;
+            text-decoration: none;
+        }
+
+        ul{
+            li{
+                a{
+                    font-size: 16px;
+                    i{
+                        font-size: 15px;
+                    }
+                }
+            }
+        }   
+    }
+}
+.artBoard {
+    padding: 54px 136px 59px 136px;
+}
+
+.members{
+    display: flex;
+    position: relative;
+    margin-bottom: 24px;
+
+    #{&}_head{
+        font-size: 28px;
+        margin-right: 11px;
+        font-weight: weight(light);
+    }
+
+    & button {
+        background-color: $active-btn-color;
+        height: 40px;
+        width: 40px;
+        border-radius: 20px;
+        color: $white-color;
+        border: none;
+
+        &:focus {
+            outline:0 !important;
+        }
+
+        span{
+            font-size: 18px;
+        }
+    }
+}
+
+// table
+.tableBoard{
+    background: $white-color;
+    height: 100%;
+    display: block;
+    padding: 24px 20px 27px 16px;
+    border-radius: 12px;
+    width: 100%;
+}
+
+.empTable {
+    table-layout: fixed;
+
+    thead{
+        pointer-events: none;
+        border-bottom: none;
+        padding-bottom: 15px;
+        font-size: 16px;
+        line-height: 20px;
+        font-weight: weight(bold);
+        border-bottom: 1px solid rgba(0,0,0,0.12);
+        th{
+            width: 250px;
+            padding: 15px 0px;
+        }
+    }
+    
+
+    td {
+        width: 250px;
+        display: table-cell;
+        padding: 22px 0px 20px 0px;
+        text-align: left;
+        border-bottom: 1px solid $border-color;
+
+        &:nth-last-child(2){
+            width: 100px;
+            color: red;
+            margin-right: 13.6px;
+
+            i {
+                display: none;
+                float: right;
+                margin-right: 13.6px;
+            }
+            
+        }
+
+        &:last-child{
+            width: 10px;
+
+            i {
+                display: none;
+                float: right;
+                margin-right: 13.6px;
+            }
+
+        }
+
+    }
+
+
+
+    tr{
+        &:hover {
+            background-color: $hover-bg-color;
+
+            & > td:nth-last-child(2) > i {
+                display: block;
+                cursor: pointer;
+                transition: all 0.5s ease-in;
+            }
+
+            & > td:last-child > a > i {
+                display: block;
+                cursor: pointer;
+                transition: all 0.5s ease-in;
+            }
+        }
+
+    }
+}
+
+.user_image{
+    // height: 32px;
+    // width: 32px;
+    cursor: pointer;
+    border-radius: 30%;
+    margin-left: 8.5px;
+    margin-right: 16px;
+}
+
+.invite{
+    margin-left: 2px;
+    margin-top: 20px;
+
+    .active_text{
+        color: $secondary-text;
+    }
+    
+    #{&}_text i{
+        margin-left: 10px;
+        margin-right: 6px;
+        font-weight: weight(bold);
+    }
+}
+
+.details-wrapper{
+    margin: 20px 0;
+
+    .back-btn{
+        width: 20px;
+        font-size: 25px;
+        color: #b0bec5;
+    }
+
+    .name{
+        margin: 20px 0 20px 0;
+        font-weight: weight(bold);
+        font-size: 16px;
+        text-transform: uppercase;
+    }
+
+    .collection{
+        width: 600px;
+        .collection-item{
+            margin-top: 15px;
+        }
+    }
+    .options{
+        i{
+            cursor: pointer;
+            color:#ffa000;
+            margin-top: 15px;
+            font-size: 20px;
+        }
+        .trash{
+            font-size: 19px;
+            color: #ff5252;
+        }
+    }
+
+}
+
